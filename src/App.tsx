@@ -5,33 +5,48 @@ import './App.css';
 function App() {
     return (
         <div>
-            This is APP component
+            <AppTitle/>
             <Raiting/>
+            <Accordion/>
         </div>
     );
 }
+function Star() {
+    return <div>Start</div>
+}
+function AppTitle() {
+    return <>This is App component</>
 
+}
 function Raiting() {
     return (
         <div>
-            <div>start</div>
-            <div>start</div>
-            <div>start</div>
-            <div>start</div>
-            <div>start</div>
+            <Star/>
+            <Star/>
+            <Star/>
+            <Star/>
+            <Star/>
         </div>
     )
 }
-
-function Accordion() {
+function AccordionBody() {
     debugger
+    console.log("AccordionBody")
+    return <><ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul></>
+}
+function AccordionTitle() {
+    debugger
+    console.log("AccordionTitle")
+    return <h3>Menu</h3>
+}
+function Accordion() {
     return (<div>
-            <h3>Menu</h3>
-            <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-            </ul>
+            <AccordionTitle/>
+            <AccordionBody/>
         </div>
     )
 }
