@@ -1,54 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Accordion from './component/Accordion/Accordion';
+import {Raiting} from "./component/Raiting/Raiting";
 
 function App() {
     return (
         <div>
-            <AppTitle/>
+            <input/>
+            <input type="password" value="yo"/>
+            <AppTitle title={"This is app component"}/>
+            <AppTitle title={"This is my test"}/>
             <Raiting/>
-            <Accordion/>
+            <Accordion title={"Accordionasdsadas Tittle test"}/>
+            <Accordion title={"Accordion Bodasdsdy asd"}/>
         </div>
     );
 }
-function Star() {
-    return <div>Start</div>
-}
-function AppTitle() {
-    return <>This is App component</>
+function AppTitle(props:any) {
+    return <h1>{props.title}</h1>
 
 }
-function Raiting() {
-    return (
-        <div>
-            <Star/>
-            <Star/>
-            <Star/>
-            <Star/>
-            <Star/>
-        </div>
-    )
-}
-function AccordionBody() {
-    debugger
-    console.log("AccordionBody")
-    return <><ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-    </ul></>
-}
-function AccordionTitle() {
-    debugger
-    console.log("AccordionTitle")
-    return <h3>Menu</h3>
-}
-function Accordion() {
-    return (<div>
-            <AccordionTitle/>
-            <AccordionBody/>
-        </div>
-    )
-}
-
 export default App;
