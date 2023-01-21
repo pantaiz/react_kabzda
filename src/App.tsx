@@ -10,13 +10,21 @@ function App() {
             <input type="password" value="yo"/>
             <AppTitle title={"This is app component"}/>
             <AppTitle title={"This is my test"}/>
-            <Raiting/>
-            <Accordion title={"Accordionasdsadas Tittle test"}/>
-            <Accordion title={"Accordion Bodasdsdy asd"}/>
+            <Raiting value={1}/>
+            <Raiting value={2}/>
+            <Raiting value={3}/>
+            <Raiting value={4}/>
+            <Raiting value={5}/>
+            <Raiting value={0}/>
+            <Accordion collapsed={true} title={"Accordionasdsadas Tittle test"}/>
+            <Accordion collapsed={false} title={"Accordion Bodasdsdy asd"}/>
         </div>
     );
 }
-function AppTitle(props:any) {
+type AppTitlePropsType={
+    title:string
+}
+function AppTitle(props:AppTitlePropsType) {
     return <h1>{props.title}</h1>
 
 }
