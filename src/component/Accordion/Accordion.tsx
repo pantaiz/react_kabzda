@@ -19,7 +19,9 @@ function AccordionBody(props: any) {
 type AccordionTitlePropstyp = {
     head: string
 }
-
+const x = () => {
+  
+}
 function AccordionTitle(props: AccordionTitlePropstyp) {
     console.log("AccordionTitle HEAD")
     return <h3> {props.head}
@@ -32,12 +34,13 @@ type AccordionPropsType = {
 
 }
 
+
 function Accordion(props: AccordionPropsType) {
     if (props.collapsed) {
         return (
             <div>
                 <AccordionTitle head={props.title}/>
-                <AccordionBody body={props.title}/>
+                {props.collapsed && <AccordionBody body={props.title}/>}
             </div>
         )
     }else {
