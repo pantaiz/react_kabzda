@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Accordion from './component/Accordion/Accordion';
 import {Raiting} from "./component/Raiting/Raiting";
+import SelfControlAccordion from "./component/SelfControlAccordion/SelfControlAccordion";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
             <Raiting value={0}/>
             <Accordion collapsed={true} title={"Accordionasdsadas Tittle test"}/>
             <Accordion collapsed={false} title={"Accordion Bodasdsdy asd"}/>
+            <SelfControlAccordion collapsed={true} title={"SelfControlAccordion Tittle test"}/>
         </div>
     );
 }
