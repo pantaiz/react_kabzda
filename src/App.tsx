@@ -19,7 +19,7 @@ function App() {
             <Raiting value={0}/>
             <Accordion collapsed={true} title={"Accordionasdsadas Tittle test"}/>
             <Accordion collapsed={false} title={"Accordion Bodasdsdy asd"}/>
-            <SelfControlAccordion collapsed={true} title={"SelfControlAccordion Tittle test"}/>
+            <SelfControlAccordion title={"SelfControlAccordion Tittle test"}/>
         </div>
     );
 }

@@ -70,7 +70,7 @@ type StarPropsType={
     selected:boolean
 }
 function Star(props: StarPropsType) {
-    if (props.selected === true) {
+    if (props.selected) {
         return <span><b>Star </b></span>
     } else {
         return <span>Star </span>
