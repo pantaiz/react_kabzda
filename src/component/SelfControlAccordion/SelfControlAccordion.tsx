@@ -12,7 +12,7 @@ const SelfControlAccordion = (props: AccordionPropsType) => {
     const [compresion,setCompresion]=useState(true)
     return (
         <>
-            <button onClick={()=>{setCompresion(!compresion)}}>Разкукожить</button>
+            <button onClick={()=>{setCompresion(!compresion)}}>{compresion?<>Cкукожить</>:<>Разкукожить</>}</button>
             {compresion
             ?
             <>

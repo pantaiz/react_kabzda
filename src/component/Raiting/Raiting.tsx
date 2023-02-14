@@ -1,79 +1,29 @@
-import React from "react";
+import React, {useState} from "react";
 
 type RaitingPropsType={
-    value:0|1|2|3|4|5
+
 }
+
 export function Raiting(props: RaitingPropsType) {
-    if (props.value === 1) {
+    const [select,setSelect]=useState(0)
         return (
             <div>
-                <Star selected={true}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
+                <Star number={1} setSelect={setSelect}  selected={select>=1}/>
+                <Star number={2} setSelect={setSelect} selected={select>=2}/>
+                <Star number={3} setSelect={setSelect} selected={select>=3}/>
+                <Star number={4} setSelect={setSelect} selected={select>=4}/>
+                <Star number={5} setSelect={setSelect} selected={select>=5}/>
             </div>)
-    }
-    if (props.value === 2) {
-        return (
-            <div>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-            </div>)
-    }
-    if (props.value === 3) {
-        return (
-            <div>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-            </div>)
-    }
-    if (props.value === 4) {
-        return (
-            <div>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={false}/>
-            </div>)
-    }
-    if (props.value === 5) {
-        return (
-            <div>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={true}/>
-            </div>)
-    }
-    else {
-        return (
-            <div>
-                <Star selected={false}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-            </div>)
-    }
+
+
 
 }
 type StarPropsType={
     selected:boolean
+    number:0|1|2|3|4|5
+    setSelect:(number:number)=>void
 }
 function Star(props: StarPropsType) {
-    if (props.selected) {
-        return <span><b>Star </b></span>
-    } else {
-        return <span>Star </span>
-    }
+        return <span onDoubleClick={()=>{props.setSelect(0)}} onClick={()=>{props.setSelect(props.number)}} >{props.selected?<b>Star </b>:<>Star </>}</span>
 
 }
