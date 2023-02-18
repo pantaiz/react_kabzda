@@ -1,19 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Accordion from './component/Accordion/Accordion';
-import {Raiting} from "./component/Raiting/Raiting";
+import {Raiting,RatingValueType} from "./component/Raiting/Raiting";
 import SelfControlAccordion from "./component/SelfControlAccordion/SelfControlAccordion";
 
 function App() {
+    const[ratingValue,setRatingValue]=useState<RatingValueType>(0)
+    const[collapsed,setCollapsed]=useState<boolean>(false)
     return (
         <div>
             <input/>
             <input type="password" value="yo"/>
             <AppTitle title={"This is app component"}/>
             <AppTitle title={"This is my test"}/>
-            <Raiting />
-            <Accordion collapsed={true} title={"Accordionasdsadas Tittle test"}/>
-            <Accordion collapsed={false} title={"Accordion Bodasdsdy asd"}/>
+            <Raiting value={ratingValue} onClick={setRatingValue}/>
+            <Accordion collapsed={collapsed} onClick={setCollapsed} title={"Accordionasdsadas Tittle test"}/>
             <SelfControlAccordion title={"SelfControlAccordion Tittle test"}/>
         </div>
     );

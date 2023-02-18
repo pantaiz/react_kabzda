@@ -1,29 +1,36 @@
-import React, {useState} from "react";
+import React from "react";
 
-type RaitingPropsType={
+export type RatingValueType=0|1|2|3|4|5
 
+type RaitingPropsType = {
+    value:RatingValueType
+    onClick:(value:RatingValueType)=>void
 }
 
 export function Raiting(props: RaitingPropsType) {
-    const [select,setSelect]=useState(0)
-        return (
-            <div>
-                <Star number={1} setSelect={setSelect}  selected={select>=1}/>
-                <Star number={2} setSelect={setSelect} selected={select>=2}/>
-                <Star number={3} setSelect={setSelect} selected={select>=3}/>
-                <Star number={4} setSelect={setSelect} selected={select>=4}/>
-                <Star number={5} setSelect={setSelect} selected={select>=5}/>
-            </div>)
 
+    return (
+        <div>
+            <Star onClick={props.onClick}  selected={props.value > 0} value={1}/>
+            <Star onClick={props.onClick}  selected={props.value > 1} value={2}/>
+            <Star  onClick={props.onClick} selected={props.value > 2} value={3}/>
+            <Star  onClick={props.onClick} selected={props.value > 3} value={4}/>
+            <Star  onClick={props.onClick} selected={props.value > 4} value={5}/>
+
+        </div>)
 
 
 }
-type StarPropsType={
-    selected:boolean
-    number:0|1|2|3|4|5
-    setSelect:(number:number)=>void
+
+type StarPropsType = {
+    selected: boolean
+    onClick:(value:RatingValueType)=>void
+    value:RatingValueType
 }
+
 function Star(props: StarPropsType) {
-        return <span onDoubleClick={()=>{props.setSelect(0)}} onClick={()=>{props.setSelect(props.number)}} >{props.selected?<b>Star </b>:<>Star </>}</span>
+    return <span onClick={()=>props.onClick(props.value)}>
+            {props.selected ? <b>Star </b> : <>Star </>}
+    </span>
 
 }

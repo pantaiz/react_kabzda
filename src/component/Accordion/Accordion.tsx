@@ -4,8 +4,7 @@ type AccordionBodyPropsType = {
     body: string
 }
 
-function AccordionBody(props: any) {
-    console.log("AccordionBody")
+function AccordionBody(props: AccordionBodyPropsType) {
     return <>
         <ul>
             {props.body}
@@ -18,39 +17,32 @@ function AccordionBody(props: any) {
 
 type AccordionTitlePropstyp = {
     head: string
-}
-const x = () => {
-  
+    onClick: (collapsed: boolean) => void
+    collapsed: boolean;
 }
 function AccordionTitle(props: AccordionTitlePropstyp) {
-    console.log("AccordionTitle HEAD")
-    return <h3> {props.head}
+
+    return <h3 onClick={()=>props.onClick(!props.collapsed)}>
+        {props.head}
         Menu</h3>
 }
 
 type AccordionPropsType = {
     title: string;
     collapsed: boolean;
+    onClick: (collapsed: boolean) => void
 
 }
 
 
 function Accordion(props: AccordionPropsType) {
-    if (props.collapsed) {
-        return (
-            <div>
-                <AccordionTitle head={props.title}/>
-                {props.collapsed && <AccordionBody body={props.title}/>}
-            </div>
-        )
-    }else {
-        return (
-            <div>
-                <AccordionTitle head={props.title}/>
-            </div>
-        )
-    }
-
+    return(
+    <div>
+        <AccordionTitle collapsed={props.collapsed}  onClick={props.onClick} head={props.title}/>
+        {props.collapsed && <AccordionBody body={props.title}/>}
+    </div>
+)
 }
+
 
 export default Accordion;
